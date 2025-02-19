@@ -11,7 +11,7 @@ import pickle
 
 import numpy as np
 import torch
-from ai_models.model import Model
+from ai_models_gfs.model import Model
 from aurora import Batch
 from aurora import Metadata
 from aurora import rollout
@@ -32,6 +32,14 @@ class AuroraModel(Model):
     surf_vars = ("2t", "10u", "10v", "msl")
     atmos_vars = ("z", "u", "v", "t", "q")
     levels = (1000, 925, 850, 700, 600, 500, 400, 300, 250, 200, 150, 100, 50)
+
+    sfc_var_list = []
+    pl_var_list = []
+    for surf_var in surf_vars:
+        sfc_var_list.append(surf_var)
+    for atmos_var in atmos_vars:
+        for level in levels:
+            pl_var_list.append(atmos_var + str(level))
 
     lagged = (-6, 0)
 
@@ -112,7 +120,9 @@ class AuroraModel(Model):
             f = f.unsqueeze(0)  # Add batch dimension
             atmos_vars[k] = f
 
-        self.write_input_fields(fields_pl + fields_sfc)
+        out_sfc = fields_sfc.sel(param=self.sfc_var_list)
+        out_pl = fields_pl.sel(param_level=self.pl_var_list)
+        self.write_input_fields(out_pl + out_sfc)
 
         # https://microsoft.github.io/aurora/batch.html
 
@@ -164,7 +174,7 @@ class AuroraModel(Model):
     def parse_model_args(self, args):
         import argparse
 
-        parser = argparse.ArgumentParser("ai-models aurora")
+        parser = argparse.ArgumentParser("ai-models-gfs aurora")
 
         parser.add_argument(
             "--lora",
@@ -253,5 +263,5 @@ def model(model_version, **kwargs):
         LOG.error(f"Model version {model_version} not found, using default")
         LOG.error(f"Available models: {list(models.keys())}")
         raise ValueError(f"Model version {model_version} not found")
-
+    print(models[model_version])
     return models[model_version](**kwargs)
