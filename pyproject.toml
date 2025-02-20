@@ -17,7 +17,7 @@ requires = [
 
 [project]
 name = "ai-models-aurora-gfs"
-
+version = "0.0.1"
 description = "An ai-models plugin to run Microsoft's Aurora model"
 keywords = [
   "ai",
@@ -45,9 +45,6 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
 
-dynamic = [
-  "version",
-]
 dependencies = [
   "ai-models-gfs",
   "microsoft-aurora>=1.1.0",
