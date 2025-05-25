@@ -11,7 +11,7 @@ import pickle
 
 import numpy as np
 import torch
-from ai_models_gfs.model import Model
+from ai_models_navgem.model import Model
 from aurora import Batch
 from aurora import Metadata
 from aurora import rollout
@@ -174,7 +174,7 @@ class AuroraModel(Model):
     def parse_model_args(self, args):
         import argparse
 
-        parser = argparse.ArgumentParser("ai-models-gfs aurora")
+        parser = argparse.ArgumentParser("ai-models-navgem aurora")
 
         parser.add_argument(
             "--lora",

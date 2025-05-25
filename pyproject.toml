@@ -16,7 +16,7 @@ requires = [
 ]
 
 [project]
-name = "ai-models-aurora-gfs"
+name = "ai-models-aurora-navgem"
 version = "0.0.1"
 description = "An ai-models plugin to run Microsoft's Aurora model"
 keywords = [
@@ -46,7 +46,7 @@ classifiers = [
 ]
 
 dependencies = [
-  "ai-models-gfs",
+  "ai-models-navgem",
   "microsoft-aurora>=1.1.0",
 ]
 
@@ -55,10 +55,10 @@ optional-dependencies.dev = [
 ]
 
 urls.Repository = "https://github.com/ecmwf-lab/ai-models-aurora"
-entry-points."ai_models_gfs.model".aurora = "ai_models_aurora_gfs.model:model"
-entry-points."ai_models_gfs.model"."aurora-0.1-finetuned" = "ai_models_aurora_gfs.model:Aurora0p1FineTuned"
-entry-points."ai_models_gfs.model"."aurora-2.5-finetuned" = "ai_models_aurora_gfs.model:Aurora0p25FineTuned"
-entry-points."ai_models_gfs.model"."aurora-2.5-pretrained" = "ai_models_aurora_gfs.model:Aurora0p25Pretrained"
+entry-points."ai_models_navgem.model".aurora = "ai_models_aurora_navgem.model:model"
+entry-points."ai_models_navgem.model"."aurora-0.1-finetuned" = "ai_models_aurora_navgem.model:Aurora0p1FineTuned"
+entry-points."ai_models_navgem.model"."aurora-2.5-finetuned" = "ai_models_aurora_navgem.model:Aurora0p25FineTuned"
+entry-points."ai_models_navgem.model"."aurora-2.5-pretrained" = "ai_models_aurora_navgem.model:Aurora0p25Pretrained"
 
 [tool.setuptools_scm]
-version_file = "src/ai_models_aurora_gfs/_version.py"
+version_file = "src/ai_models_aurora_navgem/_version.py"

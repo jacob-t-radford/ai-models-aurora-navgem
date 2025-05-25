@@ -1,6 +1,6 @@
-# ai-models-aurora-gfs
+# ai-models-aurora-navgem
 
-ai-models-aurora-gfs is an extension of [ai-models-aurora](https://github.com/ecmwf-lab/ai-models-aurora) which is a plug-in for [ai-models](https://github.com/ecmwf-lab/ai-models) to run Microsoft's [Aurora](https://github.com/microsoft/aurora).
+ai-models-aurora-navgem is an extension of [ai-models-aurora](https://github.com/ecmwf-lab/ai-models-aurora) which is a plug-in for [ai-models](https://github.com/ecmwf-lab/ai-models) to run Microsoft's [Aurora](https://github.com/microsoft/aurora).
 
 [Aurora, arXiv:2405.13063](https://arxiv.org/abs/2405.13063)
 
